@@ -1,0 +1,17 @@
+{
+  "name": "@saio/testService",
+  "version": "1.0.0",
+  "main": "./testService.js",
+  "dependencies": {
+    "when": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:saio-fr/lib.git"
+  },
+  "author": "Alexis Terrat",
+  "bugs": {
+    "url": "https://github.com/saio-fr/lib/issues"
+  },
+  "homepage": "https://github.com/saio-fr/lib"
+}

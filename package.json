@@ -1,0 +1,34 @@
+{
+  "name": "@saio/service-runner",
+  "version": "0.1.1",
+  "description": "SAIO Micro Service runner",
+  "bin": {
+    "service-runner": "bin/run.js"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "tape test/unit/**/*.test.js | tap-spec",
+    "integration-test": "echo pouet pouet"
+  },
+  "dependencies": {
+    "when": "*",
+    "underscore": "*",
+    "yargs": "*"
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "esprima-fb": "15001.1.0-dev-harmony-fb",
+    "tape": "*",
+    "tap-spec": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:saio-fr/service-runner.git"
+  },
+  "author": "Alexis Terrat",
+  "bugs": {
+    "url": "https://github.com/saio-fr/service-runner/issues"
+  },
+  "homepage": "https://github.com/saio-fr/service-runner"
+}

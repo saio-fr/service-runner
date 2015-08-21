@@ -1,0 +1,21 @@
+{
+  "preset": "airbnb",
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "validateLineBreaks": "LF",
+  "validateIndentation": 2,
+  "esprima": "esprima-fb",
+
+  // @AT default _this
+  "safeContextKeyword": "that",
+
+  // @AT default true, confict with promises
+  "requirePaddingNewLinesAfterBlocks": null,
+  
+  "fileExtensions": [".js", ".json"],
+  "maxErrors": 10,
+  "excludeFiles": [
+    ".git/**",
+    "node_modules/**",
+    "tasks/**"
+  ]
+}
