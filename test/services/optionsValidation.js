@@ -17,48 +17,21 @@
  |                                                 |
 \*-------------------------------------------------*/
 
-var Tester = require('../../src/tester.js');
-var tape = require('tape');
+// bash: service-runner syncOptionsSuccess.js --argOpt1 val1 --argOpt2 val2 --noArgOpt -x x -yz
+var Service = function(container, options) {
+  this.options = options;
+  this.success = options.argOpt1 === 'val1' &&
+                options.argOpt2 === 'val2' &&
+                options.noArgOpt &&
+                options.x === 'x' &&
+                options.y &&
+                options.z;
+};
 
-tape.test('Tester', function(t) {
-  t.plan(5);
+Service.prototype.start = function() {
+  if (!this.success) {
+    throw new Error('wrong options ' + JSON.stringify(this.options));
+  }
+};
 
-  var containerDefined = false;
-  var optionsDefined = false;
-  var optionsOk = false;
-  var serviceStarted = false;
-  var serviceStopped = false;
-
-  var Service = function(container, options) {
-    containerDefined = !!container;
-    optionsDefined = !!options;
-    optionsOk = options.test === 'test';
-  };
-
-  Service.prototype.start = function() {
-    serviceStarted = true;
-  };
-
-  Service.prototype.stop = function() {
-    serviceStopped = true;
-  };
-
-  var test = new Tester(Service, { test: 'test' });
-
-  test.start()
-  .then(function() {
-    return test.stop();
-  })
-  .catch(function() {
-    t.fail('start/stop error');
-    t.end();
-  })
-  .then(function() {
-    t.ok(containerDefined);
-    t.ok(optionsDefined);
-    t.ok(optionsOk);
-    t.ok(serviceStarted);
-    t.ok(serviceStopped);
-    t.end();
-  });
-});
+module.exports = Service;

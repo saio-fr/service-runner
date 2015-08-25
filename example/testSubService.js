@@ -20,15 +20,14 @@
 var when = require('when');
 
 var TestSubService = function(container, options) {
-  var that = this;
-
-  that.container = container;
-  that.hello = options.h ? options.h : 'Hello';
+  this.container = container;
+  this.hello = options.h ? options.h : 'Hello';
 };
 
 TestSubService.prototype.start = function() {
   return when.promise(function(resolve) {
     console.log('Starting TestSubService...');
+
     setTimeout(function() {
       console.log('TestSubService started.');
       resolve();
@@ -39,6 +38,7 @@ TestSubService.prototype.start = function() {
 TestSubService.prototype.stop = function() {
   return when.promise(function(resolve) {
     console.log('Stopping TestSubService...');
+
     setTimeout(function() {
       console.log('TestSubService stopped.');
       resolve();
@@ -47,9 +47,7 @@ TestSubService.prototype.stop = function() {
 };
 
 TestSubService.prototype.sayHello = function(world) {
-  var that = this;
-
-  console.log(that.hello + ' ' + world + ' !');
+  console.log(this.hello + ' ' + world + ' !');
 };
 
 module.exports = TestSubService;

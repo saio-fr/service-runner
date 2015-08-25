@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*-------------------------------------------------*\
  |                                                 |
  |      /$$$$$$    /$$$$$$   /$$$$$$   /$$$$$$     |
@@ -17,5 +19,4 @@
  |                                                 |
 \*-------------------------------------------------*/
 
-module.exports.Tester = require('./tester.js');
-module.exports.run = require('./run.js');
+require('../src/main.js').run();

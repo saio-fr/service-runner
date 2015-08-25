@@ -3,13 +3,12 @@
   "version": "0.1.1",
   "description": "SAIO Micro Service runner",
   "bin": {
-    "service-runner": "bin/run.js"
+    "service-runner": "bin/service-runner.js"
   },
   "main": "src/main.js",
   "scripts": {
     "pretest": "eslint .",
-    "test": "tape test/unit/**/*.test.js | tap-spec",
-    "integration-test": "echo pouet pouet"
+    "test": "blue-tape test/*.test.js | tap-spec"
   },
   "dependencies": {
     "when": "*",
@@ -19,7 +18,7 @@
   "devDependencies": {
     "eslint": "*",
     "esprima-fb": "15001.1.0-dev-harmony-fb",
-    "tape": "*",
+    "blue-tape": "*",
     "tap-spec": "*"
   },
   "repository": {

@@ -17,41 +17,24 @@
  |                                                 |
 \*-------------------------------------------------*/
 
-var when = require('when');
-var TestSubService = require('./testSubService.js');
-
-var TestService = function(container, options) {
-  this.hello = options.h ? options.h : 'Hello';
-  this.world = options.w ? options.w : 'world';
-  this.container = container;
-  container.use('testSubService', TestSubService, { h: this.hello});
+var Service = function() {
+  this.count = 0;
 };
 
-TestService.prototype.start = function() {
+Service.prototype.start = function() {
   var that = this;
-  return when.promise(function(resolve) {
-    console.log('Starting TestService...');
-
-    setTimeout(function() {
-      console.log('TestService started.');
-      resolve();
-    }, 1000);
-
-    setTimeout(function() {
-      that.container.testSubService.sayHello(that.world);
-    }, 2000);
-  });
+  setTimeout(function() {
+    that.work();
+  }, 10);
 };
 
-TestService.prototype.stop = function() {
-  return when.promise(function(resolve) {
-    console.log('Stopping TestService...');
-
-    setTimeout(function() {
-      console.log('TestService stopped.');
-      resolve();
-    }, 1000);
-  });
+Service.prototype.work = function() {
+  ++this.count;
 };
 
-module.exports = TestService;
+Service.prototype.stop = function() {
+  clearInterval(this.intervalId);
+  throw new Error('stop error');
+};
+
+module.exports = Service;

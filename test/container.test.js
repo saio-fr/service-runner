@@ -17,8 +17,8 @@
  |                                                 |
 \*-------------------------------------------------*/
 
-var Container = require('../../src/container.js');
-var tape = require('tape');
+var Container = require('../src/container.js');
+var tape = require('blue-tape');
 var _ = require('underscore');
 var when = require('when');
 
