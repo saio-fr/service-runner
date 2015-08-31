@@ -1,6 +1,4 @@
 {
-  "parser": "esprima-fb",
-
   "env": {
     "browser": true,
     "node": true,
@@ -31,6 +29,5 @@
     // @AT inconsistent returns (ie functions that return something or undefined)
     // used in function that look for something and return undefined if nothing has been found
     "consistent-return": 0
-
   }
 }

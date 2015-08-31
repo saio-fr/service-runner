@@ -11,13 +11,12 @@
     "test": "blue-tape test/*.test.js | tap-spec"
   },
   "dependencies": {
-    "when": "*",
     "underscore": "*",
+    "when": "*",
     "yargs": "*"
   },
   "devDependencies": {
     "eslint": "*",
-    "esprima-fb": "15001.1.0-dev-harmony-fb",
     "blue-tape": "*",
     "tap-spec": "*"
   },

@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/saio-fr/service-runner.svg?style=svg)](https://circleci.com/gh/saio-fr/service-runner)
+
 service-runner
 ===============
 The service-runner manages the architecture and the life-cycle of services through the pattern Service Component Architecture where components are managed and composed by containers (see Developping a MicroService).

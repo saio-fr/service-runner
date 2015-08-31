@@ -23,6 +23,6 @@ var Service = function() {};
 
 Service.prototype.start = function() {
   throw new Error('start error');
-}
+};
 
 module.exports = Service;
