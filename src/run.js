@@ -1,20 +1,20 @@
 /*-------------------------------------------------*\
- |                                                 |
- |      /$$$$$$    /$$$$$$   /$$$$$$   /$$$$$$     |
- |     /$$__  $$  /$$__  $$ |_  $$_/  /$$__  $$    |
- |    | $$  \__/ | $$  \ $$   | $$   | $$  \ $$    |
- |    |  $$$$$$  | $$$$$$$$   | $$   | $$  | $$    |
- |     \____  $$ | $$__  $$   | $$   | $$  | $$    |
- |     /$$  \ $$ | $$  | $$   | $$   | $$  | $$    |
- |    |  $$$$$$/ | $$  | $$  /$$$$$$ |  $$$$$$/    |
- |     \______/  |__/  |__/ |______/  \______/     |
- |                                                 |
- |                                                 |
- |                                                 |
- |    *---------------------------------------*    |
- |    |   © 2015 SAIO - All Rights Reserved   |    |
- |    *---------------------------------------*    |
- |                                                 |
+|                                                 |
+|      /$$$$$$    /$$$$$$   /$$$$$$   /$$$$$$     |
+|     /$$__  $$  /$$__  $$ |_  $$_/  /$$__  $$    |
+|    | $$  \__/ | $$  \ $$   | $$   | $$  \ $$    |
+|    |  $$$$$$  | $$$$$$$$   | $$   | $$  | $$    |
+|     \____  $$ | $$__  $$   | $$   | $$  | $$    |
+|     /$$  \ $$ | $$  | $$   | $$   | $$  | $$    |
+|    |  $$$$$$/ | $$  | $$  /$$$$$$ |  $$$$$$/    |
+|     \______/  |__/  |__/ |______/  \______/     |
+|                                                 |
+|                                                 |
+|                                                 |
+|    *---------------------------------------*    |
+|    |   © 2015 SAIO - All Rights Reserved   |    |
+|    *---------------------------------------*    |
+|                                                 |
 \*-------------------------------------------------*/
 
 var _ = require('underscore');
@@ -56,7 +56,7 @@ Runner.prototype.start = function() {
   var posixStopSignals = [
     'SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL',
     'SIGTRAP', 'SIGABRT', 'SIGBUS', 'SIGFPE',
-    'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
+    'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM',
   ];
 
   _.each(posixStopSignals, function(signal) {
@@ -107,15 +107,15 @@ Runner.prototype._stop = function(err) {
     process.exit(0);
 
   }, function(containerStopErr) {
-    if (!_.isUndefined(containerStopErr)) {
-      if (containerStopErr instanceof Error) {
-        console.error(containerStopErr.stack);
-      } else {
-        console.error(containerStopErr);
+      if (!_.isUndefined(containerStopErr)) {
+        if (containerStopErr instanceof Error) {
+          console.error(containerStopErr.stack);
+        } else {
+          console.error(containerStopErr);
+        }
       }
-    }
-    process.exit(1);
-  });
+      process.exit(1);
+    });
 };
 
 module.exports = function() {
