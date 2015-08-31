@@ -25,7 +25,7 @@
     "type": "git",
     "url": "git@github.com:saio-fr/service-runner.git"
   },
-  "author": "Alexis Terrat",
+  "author": "saio",
   "bugs": {
     "url": "https://github.com/saio-fr/service-runner/issues"
   },

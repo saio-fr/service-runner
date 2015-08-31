@@ -1,0 +1,19 @@
+# Initialize node env
+machine:
+  node:
+    version: 0.12.0
+# Install npm
+dependencies:
+  override:
+    - echo $NPM_TOKEN > ~/.npmrc
+    - npm install
+# Run tests
+test:
+  override:
+    - npm test
+
+deployment:
+  npm:
+    branch: master
+    commands:
+      - npm publish
